@@ -9,4 +9,15 @@ class Review extends Model
 {
     /** @use HasFactory<\Database\Factories\ReviewFactory> */
     use HasFactory;
+
+
+    public function status()
+    {
+        return ['Pending', 'Accepted', 'Canceled'][$this->status];
+    }
+
+    public function statusColor()
+    {
+        return ['warning', 'success', 'danger'][$this->status];
+    }
 }
