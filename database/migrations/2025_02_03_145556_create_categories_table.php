@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('parent_id')->index()->nullable()->constrained('categories')->nullOnDelete();
             $table->string('name');
-            $table->string('name_tm')->nullable();
             $table->string('name_ru')->nullable();
             $table->string('slug')->unique();
             $table->unsignedInteger('sort_order')->default(0);

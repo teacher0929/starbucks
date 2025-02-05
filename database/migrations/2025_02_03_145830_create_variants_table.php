@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('product_id')->index()->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('name_tm')->nullable();
             $table->string('name_ru')->nullable();
             $table->double('price')->default(0);
             $table->timestamps();
