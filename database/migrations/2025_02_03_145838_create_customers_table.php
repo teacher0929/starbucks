@@ -12,15 +12,16 @@ return new class extends Migration {
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reference_id')->index()->nullable()->constrained('customers')->nullOnDelete();
+            $table->foreignId('invited_id')->index()->nullable()->constrained('customers')->nullOnDelete();
             $table->string('name');
             $table->string('surname');
-            $table->string('reference_code')->unique();
+            $table->string('invitation_code')->unique();
             $table->string('username')->unique();
             $table->string('password');
             $table->dateTime('last_seen')->useCurrent();
             $table->unsignedTinyInteger('platform')->default(0);
             $table->unsignedTinyInteger('language')->default(0);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -7,9 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Verification extends Model
 {
-    /** @use HasFactory<\Database\Factories\VerificationFactory> */
     use HasFactory;
 
+    protected $guarded = ['id'];
+
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+        ];
+    }
+
+    //
 
     public function status()
     {

@@ -4,12 +4,37 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Gift extends Model
 {
-    /** @use HasFactory<\Database\Factories\GiftFactory> */
     use HasFactory;
 
+    protected $guarded = ['id'];
+
+    protected function casts(): array
+    {
+        return [
+            'starts_at' => 'datetime',
+            'ends_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
+
+    //
+
+    public function fromCustomer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'from_customer_id');
+    }
+
+    public function toCustomer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'to_customer_id');
+    }
+
+    //
 
     public function status()
     {
