@@ -13,76 +13,77 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $menu = [
-            'Hot Coffees' => [ // Горячие Кофе
-                "Espresso" => "Эспрессо",
-                "Americano" => "Американо",
-                "Cappuccino" => "Капучино",
-                "Latte" => "Латте",
-                "Flat White" => "Флэт Уайт",
-                "Macchiato" => "Маккиато",
-                "Mocha" => "Мокко",
-            ],
-            'Cold Coffees' => [ // Холодные Кофе
-                "Iced Coffee" => "Ледяной Кофе",
-                "Iced Americano" => "Ледяное Американо",
-                "Iced Latte" => "Ледяной Латте",
-                "Iced Mocha" => "Ледяной Мокко",
-            ],
-            'Teas' => [ // Чаи
-                "Chai Tea Latte" => "Чай Латте с Пряностями",
-                "Matcha Latte" => "Матча Латте",
-                "London Fog" => "Лондон Фог",
-                "Iced Tea" => "Ледяной Чай",
-                "Iced Matcha Latte" => "Ледяной Матча Латте",
-            ],
-            'Refreshers' => [ // Освежители
-                "Strawberry Acai Refresher" => "Стробери Асаи Рефрешер",
-                "Mango Dragonfruit Refresher" => "Манго Драгонфрут Рефрешер",
-                "Violet Drink" => "Фиолетовый Напиток",
-                "Pink Drink" => "Розовый Напиток"
-            ],
-            'Frappuccinos' => [ // Фраппучино
-                "Coffee Frappuccino" => "Кофейный Фраппучино",
-                "Mocha Frappuccino" => "Мокко Фраппучино",
-                "Caramel Frappuccino" => "Карамельный Фраппучино",
-                "Java Chip Frappuccino" => "Ява Чип Фраппучино",
-                "Vanilla Bean Frappuccino" => "Ванильный Фраппучино",
-            ],
-            'Pastries' => [ // Выпечка
-                "Croissant" => "Круассан",
-                "Cheese Danish" => "Сырный Датский",
-                "Blueberry Muffin" => "Голубичный Маффин",
-                "Cake Pops" => "Пирожные",
-                "Chocolate Chip Cookie" => "Печенье с Шоколадными Кусочками",
-            ],
-            'Sandwiches' => [ // Сэндвичи
-                "Chicken Bacon Swiss" => "Куриный Бекон с Сыром",
-                "Turkey & Pesto" => "Индейка с Песто",
-                "Ham & Cheese Croissant" => "Сэндвич с Ветчиной и Сыром",
-                "Spinach Feta Wrap" => "Обертка с Шпинатом и Фетой",
-            ],
-            'Seasonal' => [ // Сезонные
-                "Pumpkin Spice Latte" => "Пампкин Спайс Латте",
-                "Peppermint Mocha" => "Мокко с Мятой",
-                "Caramel Brûléed Latte" => "Карамельный Латте с Кремом",
-            ]
+            ['name' => 'Hot Coffees', 'name_ru' => 'Горячие Кофе', 'children' => [
+                ['name' => "Espresso", 'name_ru' => "Эспрессо"],
+                ['name' => "Americano", 'name_ru' => "Американо"],
+                ['name' => "Cappuccino", 'name_ru' => "Капучино"],
+                ['name' => "Latte", 'name_ru' => "Латте"],
+                ['name' => "Flat White", 'name_ru' => "Флэт Уайт"],
+                ['name' => "Macchiato", 'name_ru' => "Маккиато"],
+                ['name' => "Mocha", 'name_ru' => "Мокко"],
+            ]],
+            ['name' => 'Cold Coffees', 'name_ru' => 'Холодные Кофе', 'children' => [
+                ['name' => "Iced Coffee", 'name_ru' => "Ледяной Кофе"],
+                ['name' => "Iced Americano", 'name_ru' => "Ледяное Американо"],
+                ['name' => "Iced Latte", 'name_ru' => "Ледяной Латте"],
+                ['name' => "Iced Mocha", 'name_ru' => "Ледяной Мокко"],
+            ]],
+            ['name' => 'Teas', 'name_ru' => 'Чаи', 'children' => [
+                ['name' => "Chai Tea Latte", 'name_ru' => "Чай Латте с Пряностями"],
+                ['name' => "Matcha Latte", 'name_ru' => "Матча Латте"],
+                ['name' => "London Fog", 'name_ru' => "Лондон Фог"],
+                ['name' => "Iced Tea", 'name_ru' => "Ледяной Чай"],
+                ['name' => "Iced Matcha Latte", 'name_ru' => "Ледяной Матча Латте"],
+            ]],
+            ['name' => 'Refreshers', 'name_ru' => 'Освежители', 'children' => [
+                ['name' => "Strawberry Acai Refresher", 'name_ru' => "Стробери Асаи Рефрешер"],
+                ['name' => "Mango Dragonfruit Refresher", 'name_ru' => "Манго Драгонфрут Рефрешер"],
+                ['name' => "Violet Drink", 'name_ru' => "Фиолетовый Напиток"],
+                ['name' => "Pink Drink", 'name_ru' => "Розовый Напиток"],
+            ]],
+            ['name' => 'Frappuccinos', 'name_ru' => 'Фраппучино', 'children' => [
+                ['name' => "Coffee Frappuccino", 'name_ru' => "Кофейный Фраппучино"],
+                ['name' => "Mocha Frappuccino", 'name_ru' => "Мокко Фраппучино"],
+                ['name' => "Caramel Frappuccino", 'name_ru' => "Карамельный Фраппучино"],
+                ['name' => "Java Chip Frappuccino", 'name_ru' => "Ява Чип Фраппучино"],
+                ['name' => "Vanilla Bean Frappuccino", 'name_ru' => "Ванильный Фраппучино"],
+            ]],
+            ['name' => 'Pastries', 'name_ru' => 'Выпечка', 'children' => [
+                ['name' => "Croissant", 'name_ru' => "Круассан"],
+                ['name' => "Cheese Danish", 'name_ru' => "Сырный Датский"],
+                ['name' => "Blueberry Muffin", 'name_ru' => "Голубичный Маффин"],
+                ['name' => "Cake Pops", 'name_ru' => "Пирожные"],
+                ['name' => "Chocolate Chip Cookie", 'name_ru' => "Печенье с Шоколадными Кусочками"],
+            ]],
+            ['name' => 'Sandwiches', 'name_ru' => 'Сэндвичи', 'children' => [
+                ['name' => "Chicken Bacon Swiss", 'name_ru' => "Куриный Бекон с Сыром"],
+                ['name' => "Turkey & Pesto", 'name_ru' => "Индейка с Песто"],
+                ['name' => "Ham & Cheese Croissant", 'name_ru' => "Сэндвич с Ветчиной и Сыром"],
+                ['name' => "Spinach Feta Wrap", 'name_ru' => "Обертка с Шпинатом и Фетой"],
+            ]],
+            ['name' => 'Seasonal', 'name_ru' => 'Сезонные', 'children' => [
+                ['name' => "Pumpkin Spice Latte", 'name_ru' => "Пампкин Спайс Латте"],
+                ['name' => "Peppermint Mocha", 'name_ru' => "Мокко с Мятой"],
+                ['name' => "Caramel Brûléed Latte", 'name_ru' => "Карамельный Латте с Кремом"],
+            ]],
         ];
 
         $parentSortOrder = 1;
-        foreach ($menu as $parentName => $children) {
+        foreach ($menu as $parent) {
             $parent = Category::create([
-                'name' => $parentName,
-                'slug' => str($parentName)->slug(),
+                'name' => $parent['name'],
+                'name_ru' => $parent['name_ru'],
+                'slug' => str($parent['name'])->slug(),
                 'sort_order' => $parentSortOrder++
             ]);
 
             $childSortOrder = 1;
-            foreach ($children as $childName => $childNameRu) {
+            foreach ($parent['children'] as $child) {
                 Category::create([
                     'parent_id' => $parent->id,
-                    'name' => $childName,
-                    'name_ru' => $childNameRu,
-                    'slug' => str($childName)->slug(),
+                    'name' => $child['name'],
+                    'name_ru' => $child['name_ru'],
+                    'slug' => str($child['name'])->slug(),
                     'sort_order' => $childSortOrder++
                 ]);
             }
