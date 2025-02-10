@@ -23,7 +23,9 @@ class VerificationFactory extends Factory
         return [
             'phone' => fake()->unique()->numberBetween(61000000, 65999999),
             'code' => fake()->randomDigit(5),
-            'status' => fake()->numberBetween(0, 2),
+            'status' => fake()->boolean(50)
+                ? 1
+                : fake()->numberBetween(0, 2),
             'created_at' => Carbon::parse($createdAt),
             'updated_at' => Carbon::parse($createdAt)->addSeconds(fake()->randomDigit(2)),
         ];

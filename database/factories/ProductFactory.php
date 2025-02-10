@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Customer;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,13 +24,24 @@ class ProductFactory extends Factory
 
         return [
             'category_id' => Category::whereNotNull('parent_id')->inRandomOrder()->first()->id,
-            'name' => fake()->sentence(rand(3, 5)),
-            'name_ru' => fake()->sentence(rand(3, 5)) . ' (RU)',
-            'description' => fake()->paragraph(rand(3, 5)),
-            'description_ru' => fake()->paragraph(rand(3, 5)) . ' (RU)',
-            'status' => fake()->boolean(90),
+            'name' => fake()->word(),
+            'name_ru' => fake()->sentence(fake()->numberBetween(2, 3)) . ' (RU)',
+            'description' => fake()->paragraph(fake()->numberBetween(2, 3)),
+            'description_ru' => fake()->paragraph(fake()->numberBetween(2, 3)) . ' (RU)',
+            'status' => fake()->boolean(95),
             'created_at' => Carbon::parse($createdAt),
             'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit(2)),
         ];
+    }
+
+    public function configure(): static
+    {
+        return $this->afterMaking(function (Product $product) {
+            // ...
+        })->afterCreating(function (Product $product) {
+            $product->favorites()->sync(Customer::inRandomOrder()
+                ->take(fake()->numberBetween(2, 3))
+                ->get());
+        });
     }
 }

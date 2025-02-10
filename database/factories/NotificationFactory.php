@@ -19,8 +19,8 @@ class NotificationFactory extends Factory
     {
         return [
             'customer_id' => Customer::inRandomOrder()->first()->id,
-            'title' => fake()->sentence(rand(3, 5)),
-            'body' => fake()->paragraph(rand(3, 5)),
+            'title' => fake()->sentence(fake()->numberBetween(2, 3)),
+            'body' => fake()->paragraph(fake()->numberBetween(2, 3)),
             'created_at' => fake()->dateTimeBetween('- 1 year', 'now'),
         ];
     }

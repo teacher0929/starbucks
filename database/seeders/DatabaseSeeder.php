@@ -52,6 +52,12 @@ class DatabaseSeeder extends Seeder
             ->has(Variant::factory()->count(3))
             ->create();
 
+        $products = Product::with('variants')->get();
+        foreach ($products as $product) {
+            $product->price = $product->variants->min('price');
+            $product->update();
+        }
+
         Review::factory()
             ->count(50)
             ->create();

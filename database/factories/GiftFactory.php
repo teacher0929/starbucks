@@ -25,7 +25,9 @@ class GiftFactory extends Factory
             'to_customer_id' => Customer::inRandomOrder()->first()->id,
             'starts_at' => Carbon::parse($createdAt),
             'ends_at' => Carbon::parse($createdAt)->addMonth(),
-            'status' => fake()->numberBetween(0, 2),
+            'status' => fake()->boolean(50)
+                ? 1
+                : fake()->numberBetween(0, 2),
             'created_at' => Carbon::parse($createdAt),
             'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit(1)),
         ];

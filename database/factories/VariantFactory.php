@@ -20,8 +20,8 @@ class VariantFactory extends Factory
         $createdAt = fake()->dateTimeBetween('- 1 year', 'now');
 
         return [
-            'name' => fake()->sentence(rand(3, 5)),
-            'name_ru' => fake()->sentence(rand(3, 5)) . ' (RU)',
+            'name' => fake()->word(),
+            'name_ru' => fake()->word() . ' (RU)',
             'price' => fake()->randomDigit(2),
             'created_at' => Carbon::parse($createdAt),
             'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit(2)),
