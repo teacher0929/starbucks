@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('customer_id')->index()->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->index()->constrained()->cascadeOnDelete();
             $table->unsignedTinyInteger('rating')->default(0);
-            $table->string('comment');
-            $table->string('reply')->nullable();
+            $table->text('comment');
+            $table->text('reply')->nullable();
             $table->unsignedTinyInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes();

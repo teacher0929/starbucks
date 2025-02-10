@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('verifications', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
+            $table->string('phone')->unique();
             $table->string('code');
             $table->unsignedTinyInteger('status')->default(0);
             $table->timestamps();

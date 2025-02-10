@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('customer_id')->index()->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->string('body');
+            $table->text('body');
             $table->timestamp('created_at')->nullable();
         });
     }

@@ -26,33 +26,38 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
         ]);
 
-        Product::factory()
-            ->count(100)
-            ->has(Variant::factory()->count(3))
+        User::factory()
+            ->count(10)
             ->create();
 
-        Customer::factory()
-            ->count(100)
+        Verification::factory()
+            ->count(50)
+            ->create();
+
+        for ($i = 0; $i < 50; $i++) {
+            Customer::factory()
+                ->create();
+        }
+
+        Notification::factory()
+            ->count(50)
             ->create();
 
         Gift::factory()
             ->count(50)
             ->create();
 
-        Review::factory()
+        Product::factory()
             ->count(100)
+            ->has(Variant::factory()->count(3))
+            ->create();
+
+        Review::factory()
+            ->count(50)
             ->create();
 
         Order::factory()
-            ->count(100)
-            ->create();
-
-        Verification::factory()
-            ->count(100)
-            ->create();
-
-        Notification::factory()
-            ->count(100)
+            ->count(50)
             ->create();
     }
 }

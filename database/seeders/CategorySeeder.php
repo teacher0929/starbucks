@@ -69,16 +69,16 @@ class CategorySeeder extends Seeder
         ];
 
         $parentSortOrder = 1;
-        foreach ($menu as $parent) {
+        foreach ($menu as $category) {
             $parent = Category::create([
-                'name' => $parent['name'],
-                'name_ru' => $parent['name_ru'],
-                'slug' => str($parent['name'])->slug(),
+                'name' => $category['name'],
+                'name_ru' => $category['name_ru'],
+                'slug' => str($category['name'])->slug(),
                 'sort_order' => $parentSortOrder++
             ]);
 
             $childSortOrder = 1;
-            foreach ($parent['children'] as $child) {
+            foreach ($category['children'] as $child) {
                 Category::create([
                     'parent_id' => $parent->id,
                     'name' => $child['name'],
