@@ -26,6 +26,7 @@ class ProductFactory extends Factory
             'category_id' => Category::whereNotNull('parent_id')->inRandomOrder()->first()->id,
             'name' => fake()->word(),
             'name_ru' => fake()->sentence(fake()->numberBetween(2, 3)) . ' (RU)',
+            'slug' => str()->random(10),
             'description' => fake()->paragraph(fake()->numberBetween(2, 3)),
             'description_ru' => fake()->paragraph(fake()->numberBetween(2, 3)) . ' (RU)',
             'status' => fake()->boolean(95),
@@ -39,6 +40,9 @@ class ProductFactory extends Factory
         return $this->afterMaking(function (Product $product) {
             // ...
         })->afterCreating(function (Product $product) {
+            $product->slug = str($product->name)->slug() . '-' . $product->id;
+            $product->update();
+
             $product->favorites()->sync(Customer::inRandomOrder()
                 ->take(fake()->numberBetween(2, 3))
                 ->get());
