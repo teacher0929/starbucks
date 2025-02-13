@@ -15,8 +15,8 @@ class Gift extends Model
     protected function casts(): array
     {
         return [
-            'starts_at' => 'datetime',
-            'ends_at' => 'datetime',
+            'starts_at' => 'date',
+            'ends_at' => 'date',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];

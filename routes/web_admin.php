@@ -13,12 +13,12 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VerificationController;
 use Illuminate\Support\Facades\Route;
 
+// user auth
 Route::middleware('guest')
     ->group(function () {
         Route::get('login', [AuthController::class, 'create'])->name('login');
         Route::post('login', [AuthController::class, 'store']);
     });
-
 Route::middleware('auth')
     ->group(function () {
         Route::post('logout', [AuthController::class, 'destroy'])->name('logout');
@@ -35,6 +35,11 @@ Route::middleware('auth')
             ->name('orders.')
             ->group(function () {
                 Route::get('', 'index')->name('index');
+                Route::get('{id}', 'show')->name('show')->where(['id' => '[0-9]+']);
+                Route::put('{id}', 'update')->name('update')->where(['id' => '[0-9]+']);
+                Route::delete('{id}', 'destroy')->name('destroy')->where(['id' => '[0-9]+']);
+                Route::post('{id}/restore', 'restore')->name('restore')->where(['id' => '[0-9]+']);
+                Route::delete('{id}/force', 'forceDelete')->name('forceDelete')->where(['id' => '[0-9]+']);
             });
 
         Route::controller(ReviewController::class)
@@ -42,6 +47,11 @@ Route::middleware('auth')
             ->name('reviews.')
             ->group(function () {
                 Route::get('', 'index')->name('index');
+                Route::get('{id}', 'show')->name('show')->where(['id' => '[0-9]+']);
+                Route::put('{id}', 'update')->name('update')->where(['id' => '[0-9]+']);
+                Route::delete('{id}', 'destroy')->name('destroy')->where(['id' => '[0-9]+']);
+                Route::post('{id}/restore', 'restore')->name('restore')->where(['id' => '[0-9]+']);
+                Route::delete('{id}/force', 'forceDelete')->name('forceDelete')->where(['id' => '[0-9]+']);
             });
 
         Route::controller(CustomerController::class)
@@ -49,6 +59,7 @@ Route::middleware('auth')
             ->name('customers.')
             ->group(function () {
                 Route::get('', 'index')->name('index');
+                Route::get('{id}', 'show')->name('show')->where(['id' => '[0-9]+']);
             });
 
         Route::controller(NotificationController::class)
@@ -63,6 +74,7 @@ Route::middleware('auth')
             ->name('gifts.')
             ->group(function () {
                 Route::get('', 'index')->name('index');
+                Route::post('', 'store')->name('store');
             });
 
         Route::controller(VerificationController::class)

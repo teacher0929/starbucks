@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Client\AuthController;
+use App\Http\Controllers\Client\FavoriteController;
 use App\Http\Controllers\Client\GiftController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\NotificationController;
@@ -9,13 +10,13 @@ use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Client\ReviewController;
 use Illuminate\Support\Facades\Route;
 
+// customer auth
 Route::middleware('guest:customer_web')
     ->group(function () {
         Route::get('login', [AuthController::class, 'create'])->name('login');
-        Route::get('verify', [AuthController::class, 'verify'])->name('verify');
+        Route::get('verify', [AuthController::class, 'verify'])->name('verify'); // OTP
         Route::post('login', [AuthController::class, 'store']);
     });
-
 Route::middleware('auth:customer_web')
     ->group(function () {
         Route::post('logout', [AuthController::class, 'destroy'])->name('logout');
@@ -44,6 +45,7 @@ Route::middleware('auth:customer_web')
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('', 'store')->name('store');
+                Route::delete('{id}', 'destroy')->name('destroy')->where(['id' => '[0-9]+']);
             });
 
         Route::controller(ReviewController::class)
@@ -52,6 +54,7 @@ Route::middleware('auth:customer_web')
             ->group(function () {
                 Route::get('', 'index')->name('index');
                 Route::post('', 'store')->name('store');
+                Route::delete('{id}', 'destroy')->name('destroy')->where(['id' => '[0-9]+']);
             });
 
         Route::controller(NotificationController::class)
@@ -66,5 +69,13 @@ Route::middleware('auth:customer_web')
             ->name('gifts.')
             ->group(function () {
                 Route::get('', 'index')->name('index');
+            });
+
+        Route::controller(FavoriteController::class)
+            ->prefix('favorites')
+            ->name('favorites.')
+            ->group(function () {
+                Route::get('', 'index')->name('index');
+                Route::post('', 'store')->name('store');
             });
     });

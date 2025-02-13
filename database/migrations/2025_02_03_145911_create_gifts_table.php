@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('from_customer_id')->index()->nullable()->constrained('customers')->nullOnDelete();
             $table->foreignId('to_customer_id')->index()->constrained('customers')->cascadeOnDelete();
-            $table->dateTime('starts_at')->useCurrent();
-            $table->dateTime('ends_at');
+            $table->date('starts_at')->useCurrent();
+            $table->date('ends_at');
             $table->unsignedTinyInteger('status')->default(0);
             $table->timestamps();
         });
