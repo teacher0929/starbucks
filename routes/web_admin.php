@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // user auth
 Route::middleware('guest')
+    ->prefix('admin')
+    ->name('admin.')
     ->group(function () {
         Route::get('login', [AuthController::class, 'create'])->name('login');
         Route::post('login', [AuthController::class, 'store']);

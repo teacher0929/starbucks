@@ -11,10 +11,16 @@ class LocaleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (session()->has('locale') and in_array(session('locale'), ['ru', 'en'])) {
+            app()->setLocale(session('locale'));
+        } else {
+            app()->setLocale(env('APP_LOCALE', 'en'));
+        }
+
         return $next($request);
     }
 }
