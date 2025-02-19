@@ -14,7 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo(fn() => abort(404));
         $middleware->redirectUsersTo(fn() => route('admin.dashboard'));
         $middleware->appendToGroup('web', [
+            \App\Http\Middleware\WebMiddleware::class,
             \App\Http\Middleware\LocaleMiddleware::class,
+        ]);
+        $middleware->appendToGroup('api', [
+            \App\Http\Middleware\ApiMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

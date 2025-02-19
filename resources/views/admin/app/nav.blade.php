@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm" aria-label="Navbar">
+<nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm" aria-label="Navbar">
     <div class="container-xl">
         <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
             <i class="bi-cup-hot"></i>
@@ -10,13 +10,69 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto">
-                @foreach(['Home', 'About', 'Contact'] as $link)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.orders.index') }}">
+                        @lang('app.orders')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.reviews.index') }}">
+                        @lang('app.reviews')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.customers.index') }}">
+                        @lang('app.customers')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.notifications.index') }}">
+                        @lang('app.notifications')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.gifts.index') }}">
+                        @lang('app.gifts')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.verifications.index') }}">
+                        @lang('app.verifications')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.products.index') }}">
+                        @lang('app.products')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.categories.index') }}">
+                        @lang('app.categories')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.users.index') }}">
+                        @lang('app.users')
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            {{ $link }}
+                        <a class="nav-link link-primary" href="#" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                            <i class="bi-box-arrow-right"></i> @lang('app.logout')
                         </a>
                     </li>
-                @endforeach
+                    <form method="POST" action="{{ route('logout') }}" id="logout">
+                        @csrf
+                    </form>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link link-primary" href="{{ route('login') }}">
+                            <i class="bi-box-arrow-in-right"></i> @lang('app.login')
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

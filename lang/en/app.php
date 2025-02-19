@@ -17,7 +17,11 @@ return [
     'profile' => 'Profile',
     'orders' => 'Orders',
     'reviews' => 'Reviews',
+    'customers' => 'Customers',
     'notifications' => 'Notifications',
     'gifts' => 'Gifts',
-    'favorites' => 'Favorites',
+    'verifications' => 'Verifications',
+    'products' => 'Products',
+    'categories' => 'Categories',
+    'users' => 'Users',
 ];
