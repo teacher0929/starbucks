@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title') | @lang('app.admin')</title>
+    <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons.min.css') }}" rel="stylesheet">
@@ -13,7 +13,9 @@
 </head>
 <body class="bg-light">
 @include('admin.app.nav')
-@include('admin.app.alert')
-@yield('content')
+<div class="container-xl py-3">
+    @include('admin.app.alert')
+    @yield('content')
+</div>
 </body>
 </html>

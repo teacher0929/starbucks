@@ -11,4 +11,13 @@ return [
     'admin' => 'Admin',
     'home' => 'Home',
     'dashboard' => 'Dashboard',
+    'search' => 'Search',
+    'language' => 'Language',
+
+    'profile' => 'Profile',
+    'orders' => 'Orders',
+    'reviews' => 'Reviews',
+    'notifications' => 'Notifications',
+    'gifts' => 'Gifts',
+    'favorites' => 'Favorites',
 ];

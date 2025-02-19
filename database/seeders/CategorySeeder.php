@@ -35,12 +35,6 @@ class CategorySeeder extends Seeder
                 ['name' => "Iced Tea", 'name_ru' => "Ледяной Чай"],
                 ['name' => "Iced Matcha Latte", 'name_ru' => "Ледяной Матча Латте"],
             ]],
-            ['name' => 'Refreshers', 'name_ru' => 'Освежители', 'children' => [
-                ['name' => "Strawberry Acai Refresher", 'name_ru' => "Стробери Асаи Рефрешер"],
-                ['name' => "Mango Dragonfruit Refresher", 'name_ru' => "Манго Драгонфрут Рефрешер"],
-                ['name' => "Violet Drink", 'name_ru' => "Фиолетовый Напиток"],
-                ['name' => "Pink Drink", 'name_ru' => "Розовый Напиток"],
-            ]],
             ['name' => 'Frappuccinos', 'name_ru' => 'Фраппучино', 'children' => [
                 ['name' => "Coffee Frappuccino", 'name_ru' => "Кофейный Фраппучино"],
                 ['name' => "Mocha Frappuccino", 'name_ru' => "Мокко Фраппучино"],
@@ -60,11 +54,6 @@ class CategorySeeder extends Seeder
                 ['name' => "Turkey & Pesto", 'name_ru' => "Индейка с Песто"],
                 ['name' => "Ham & Cheese Croissant", 'name_ru' => "Сэндвич с Ветчиной и Сыром"],
                 ['name' => "Spinach Feta Wrap", 'name_ru' => "Обертка с Шпинатом и Фетой"],
-            ]],
-            ['name' => 'Seasonal', 'name_ru' => 'Сезонные', 'children' => [
-                ['name' => "Pumpkin Spice Latte", 'name_ru' => "Пампкин Спайс Латте"],
-                ['name' => "Peppermint Mocha", 'name_ru' => "Мокко с Мятой"],
-                ['name' => "Caramel Brûléed Latte", 'name_ru' => "Карамельный Латте с Кремом"],
             ]],
         ];
 

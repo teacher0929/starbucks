@@ -19,11 +19,24 @@ class Category extends Model
 
     public function children(): HasMany
     {
-        return $this->hasMany(self::class, 'parent_id');
+        return $this->hasMany(self::class, 'parent_id')
+            ->orderBy('sort_order');
     }
 
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    //
+
+    public function getName()
+    {
+        $locale = app()->getLocale();
+        if ($locale == 'ru') {
+            return $this->name_ru ?: $this->name;
+        } else {
+            return $this->name;
+        }
     }
 }

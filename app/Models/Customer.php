@@ -71,6 +71,11 @@ class Customer extends Authenticatable
 
     //
 
+    public function getName()
+    {
+        return $this->name . ' ' . $this->surname;
+    }
+
     public function platform()
     {
         return ['Web', 'Android', 'iOS'][$this->platform];
