@@ -17,14 +17,14 @@ class VariantFactory extends Factory
      */
     public function definition(): array
     {
-        $createdAt = fake()->dateTimeBetween('- 1 year', 'now');
+        $createdAt = fake()->dateTimeBetween('-1 year', 'now');
 
         return [
             'name' => fake()->word(),
             'name_ru' => fake()->word() . ' (RU)',
-            'price' => fake()->randomDigit(2),
+            'price' => fake()->randomDigit(),
             'created_at' => Carbon::parse($createdAt),
-            'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit(2)),
+            'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit()),
         ];
     }
 }

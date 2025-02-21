@@ -20,7 +20,7 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $createdAt = fake()->dateTimeBetween('- 1 year', 'now');
+        $createdAt = fake()->dateTimeBetween('-1 year', 'now');
 
         return [
             'category_id' => Category::whereNotNull('parent_id')->inRandomOrder()->first()->id,
@@ -31,7 +31,7 @@ class ProductFactory extends Factory
             'description_ru' => fake()->paragraph(fake()->numberBetween(2, 3)) . ' (RU)',
             'status' => fake()->boolean(95),
             'created_at' => Carbon::parse($createdAt),
-            'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit(2)),
+            'updated_at' => Carbon::parse($createdAt)->addDays(fake()->randomDigit()),
         ];
     }
 

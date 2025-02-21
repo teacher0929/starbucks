@@ -18,7 +18,7 @@ class VerificationFactory extends Factory
      */
     public function definition(): array
     {
-        $createdAt = fake()->dateTimeBetween('- 1 year', 'now');
+        $createdAt = fake()->dateTimeBetween('-1 year', 'now');
 
         return [
             'phone' => fake()->unique()->numberBetween(61000000, 65999999),
@@ -27,7 +27,7 @@ class VerificationFactory extends Factory
                 ? 1
                 : fake()->numberBetween(0, 2),
             'created_at' => Carbon::parse($createdAt),
-            'updated_at' => Carbon::parse($createdAt)->addSeconds(fake()->randomDigit(2)),
+            'updated_at' => Carbon::parse($createdAt)->addSeconds(fake()->randomDigit()),
         ];
     }
 }

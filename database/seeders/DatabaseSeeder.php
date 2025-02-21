@@ -44,14 +44,6 @@ class DatabaseSeeder extends Seeder
                 ->create();
         }
 
-        Notification::factory()
-            ->count(50)
-            ->create();
-
-        Gift::factory()
-            ->count(50)
-            ->create();
-
         Product::factory()
             ->count(100)
             ->has(Variant::factory()->count(3))
