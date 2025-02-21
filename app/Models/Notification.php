@@ -21,6 +21,8 @@ class Notification extends Model
 
     const UPDATED_AT = null;
 
+    //
+
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);

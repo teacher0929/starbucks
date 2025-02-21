@@ -12,6 +12,8 @@ class Category extends Model
 
     public $timestamps = false;
 
+    //
+
     public function parent(): BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');

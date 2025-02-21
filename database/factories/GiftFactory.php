@@ -21,10 +21,10 @@ class GiftFactory extends Factory
         $createdAt = fake()->dateTimeBetween('- 1 year', 'now');
 
         return [
-            'from_customer_id' => Customer::inRandomOrder()->first()->id,
-            'to_customer_id' => Customer::inRandomOrder()->first()->id,
+            'customer_id' => Customer::inRandomOrder()->first()->id,
             'starts_at' => Carbon::parse($createdAt),
             'ends_at' => Carbon::parse($createdAt)->addMonth(),
+            'note' => fake()->sentence(fake()->numberBetween(3, 5)),
             'status' => fake()->boolean(50)
                 ? 1
                 : fake()->numberBetween(0, 2),

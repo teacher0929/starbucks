@@ -15,9 +15,9 @@ return new class extends Migration {
             $table->foreignId('invited_id')->index()->nullable()->constrained('customers')->nullOnDelete();
             $table->string('name');
             $table->string('surname');
-            $table->string('invitation_code')->unique();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('invitation_code')->unique();
             $table->dateTime('last_seen')->useCurrent();
             $table->unsignedTinyInteger('platform')->default(0);
             $table->unsignedTinyInteger('language')->default(0);

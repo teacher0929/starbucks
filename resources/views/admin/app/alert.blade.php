@@ -22,7 +22,7 @@
 @elseif($errors->any())
     <div class="alert alert-danger alert-dismissible fade show fw-semibold mb-3" role="alert">
         @foreach($errors->all() as $error)
-            <div><i class="bi-x-circle-fill"></i>  {{ $error }}</div>
+            <div><i class="bi-x-circle-fill"></i> {{ $error }}</div>
         @endforeach
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>

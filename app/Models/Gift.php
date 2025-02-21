@@ -24,14 +24,9 @@ class Gift extends Model
 
     //
 
-    public function fromCustomer(): BelongsTo
+    public function customer(): BelongsTo
     {
-        return $this->belongsTo(Customer::class, 'from_customer_id');
-    }
-
-    public function toCustomer(): BelongsTo
-    {
-        return $this->belongsTo(Customer::class, 'to_customer_id');
+        return $this->belongsTo(Customer::class);
     }
 
     //

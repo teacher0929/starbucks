@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Gift;
+use App\Models\Notification;
 use App\Models\Verification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -103,7 +105,7 @@ class AuthController extends Controller
 
         if ($verification) {
             if ($request->has('invitation_code') and isset($request->invitation_code)) {
-                $invitedCustomer = Customer::where('reference_code', str($request->invitation_code)->upper())
+                $invitedCustomer = Customer::where('invitation_code', str($request->invitation_code)->upper())
                     ->first();
             }
 
@@ -111,11 +113,39 @@ class AuthController extends Controller
                 'invited_id' => isset($invitedCustomer) ? $invitedCustomer->id : null,
                 'name' => $request->name,
                 'surname' => $request->surname,
-                'invitation_code' => str(str()->random())->upper(),
                 'username' => $request->phone,
                 'password' => bcrypt(str()->random(10)),
+                'invitation_code' => str(str()->random(10))->upper(),
                 'language' => ['en' => 0, 'ru' => 1][app()->getLocale()],
             ]);
+
+            if (isset($invitedCustomer)) {
+                $obj = new Gift();
+                $obj->customer_id = $invitedCustomer->id;
+                $obj->starts_at = today();
+                $obj->ends_at = today()->addMonth();
+                $obj->note = 'Invited ' . $customer->getName();
+                $obj->save();
+
+                $obj = new Notification();
+                $obj->customer_id = $invitedCustomer->id;
+                $obj->title = 'You have won a free coffee';
+                $obj->body = 'Dear Customer, thank you for inviting your friend!';
+                $obj->save();
+
+                $obj = new Gift();
+                $obj->customer_id = $customer->id;
+                $obj->starts_at = today();
+                $obj->ends_at = today()->addMonth();
+                $obj->note = 'Invited by ' . $invitedCustomer->getName();
+                $obj->save();
+
+                $obj = new Notification();
+                $obj->customer_id = $customer->id;
+                $obj->title = 'You have won a free coffee';
+                $obj->body = 'Dear Customer, thank you for accepting your friend\'s invitation!';
+                $obj->save();
+            }
 
             auth('customer_web')->login($customer);
 

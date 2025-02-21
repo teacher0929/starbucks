@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -39,16 +38,6 @@ class Customer extends Authenticatable
         return $this->hasMany(self::class, 'invited_id');
     }
 
-    public function giftsFrom(): HasMany
-    {
-        return $this->hasMany(Gift::class, 'from_customer_id');
-    }
-
-    public function giftsTo(): HasMany
-    {
-        return $this->hasMany(Gift::class, 'to_customer_id');
-    }
-
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
@@ -62,6 +51,11 @@ class Customer extends Authenticatable
     public function notifications(): HasMany
     {
         return $this->hasMany(Notification::class);
+    }
+
+    public function gifts(): HasMany
+    {
+        return $this->hasMany(Gift::class);
     }
 
     public function favorites(): BelongsToMany

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm" aria-label="Navbar">
-    <div class="container-xl">
+    <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
             <i class="bi-cup-hot"></i>
             @lang('app.appName')
@@ -13,47 +13,47 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link link-warning" href="{{ route('admin.orders.index') }}">
-                            @lang('app.orders')
+                            <i class="bi-bag"></i> @lang('app.orders')
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link-warning" href="{{ route('admin.reviews.index') }}">
-                            @lang('app.reviews')
+                            <i class="bi-star"></i> @lang('app.reviews')
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link-warning" href="{{ route('admin.customers.index') }}">
-                            @lang('app.customers')
+                            <i class="bi-person-bounding-box"></i> @lang('app.customers')
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.verifications.index') }}">
-                            @lang('app.verifications')
+                        <a class="nav-link link-light" href="{{ route('admin.verifications.index') }}">
+                            <i class="bi-person-check"></i>  @lang('app.verifications')
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.notifications.index') }}">
-                            @lang('app.notifications')
+                        <a class="nav-link link-light" href="{{ route('admin.notifications.index') }}">
+                            <i class="bi-app-indicator"></i> @lang('app.notifications')
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.gifts.index') }}">
-                            @lang('app.gifts')
+                        <a class="nav-link link-light" href="{{ route('admin.gifts.index') }}">
+                            <i class="bi-gift"></i> @lang('app.gifts')
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.products.index') }}">
-                            @lang('app.products')
+                        <a class="nav-link link-light" href="{{ route('admin.products.index') }}">
+                            <i class="bi-cup-hot"></i> @lang('app.products')
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.categories.index') }}">
-                            @lang('app.categories')
+                            <i class="bi-ui-checks-grid"></i> @lang('app.categories')
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.users.index') }}">
-                            @lang('app.users')
+                            <i class="bi-shield-check"></i> @lang('app.users')
                         </a>
                     </li>
                 </ul>

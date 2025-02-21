@@ -12,10 +12,10 @@ return new class extends Migration {
     {
         Schema::create('gifts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('from_customer_id')->index()->constrained('customers')->cascadeOnDelete();
-            $table->foreignId('to_customer_id')->index()->constrained('customers')->cascadeOnDelete();
+            $table->foreignId('customer_id')->index()->constrained('customers')->cascadeOnDelete();
             $table->date('starts_at')->useCurrent();
             $table->date('ends_at');
+            $table->text('note')->nullable();
             $table->unsignedTinyInteger('status')->default(0);
             $table->timestamps();
         });

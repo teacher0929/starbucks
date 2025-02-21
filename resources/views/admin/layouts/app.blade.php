@@ -13,7 +13,7 @@
 </head>
 <body class="bg-body-secondary">
 @include('admin.app.nav')
-<div class="container-xl py-3">
+<div class="container-fluid py-3">
     @include('admin.app.alert')
     @yield('content')
 </div>
