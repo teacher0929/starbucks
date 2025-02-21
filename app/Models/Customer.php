@@ -83,6 +83,6 @@ class Customer extends Authenticatable
 
     public function language()
     {
-        return ['English', 'Turkmen', 'Russian'][$this->language];
+        return ['English', 'Russian'][$this->language];
     }
 }

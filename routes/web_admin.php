@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VerificationController;
 use Illuminate\Support\Facades\Route;
 
-// user auth
 Route::middleware('guest')
     ->prefix('admin')
     ->name('admin.')
@@ -22,6 +21,8 @@ Route::middleware('guest')
         Route::post('login', [AuthController::class, 'store']);
     });
 Route::middleware('auth')
+    ->prefix('admin')
+    ->name('admin.')
     ->group(function () {
         Route::post('logout', [AuthController::class, 'destroy'])->name('logout');
     });
@@ -64,6 +65,13 @@ Route::middleware('auth')
                 Route::get('{id}', 'show')->name('show')->where(['id' => '[0-9]+']);
             });
 
+        Route::controller(VerificationController::class)
+            ->prefix('verifications')
+            ->name('verifications.')
+            ->group(function () {
+                Route::get('', 'index')->name('index');
+            });
+
         Route::controller(NotificationController::class)
             ->prefix('notifications')
             ->name('notifications.')
@@ -77,13 +85,6 @@ Route::middleware('auth')
             ->group(function () {
                 Route::get('', 'index')->name('index');
                 Route::post('', 'store')->name('store');
-            });
-
-        Route::controller(VerificationController::class)
-            ->prefix('verifications')
-            ->name('verifications.')
-            ->group(function () {
-                Route::get('', 'index')->name('index');
             });
 
         Route::controller(ProductController::class)

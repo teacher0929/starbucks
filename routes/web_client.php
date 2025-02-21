@@ -10,11 +10,11 @@ use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Client\ReviewController;
 use Illuminate\Support\Facades\Route;
 
-// customer auth
 Route::middleware('guest:customer_web')
     ->group(function () {
         Route::get('login', [AuthController::class, 'create'])->name('login');
-        Route::get('verify', [AuthController::class, 'verify'])->name('verify'); // OTP
+        Route::post('verify', [AuthController::class, 'verify'])->name('verify');
+        Route::post('confirm', [AuthController::class, 'confirm'])->name('confirm');
         Route::post('login', [AuthController::class, 'store']);
     });
 Route::middleware('auth:customer_web')

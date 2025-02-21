@@ -26,7 +26,7 @@ class CustomerFactory extends Factory
                 : null,
             'name' => fake()->firstName(),
             'surname' => fake()->lastName(),
-            'invitation_code' => str()->random(10),
+            'invitation_code' => str(str()->random(10))->upper(),
             'username' => fake()->unique()->numberBetween(61000000, 65999999),
             'password' => bcrypt(fake()->randomDigit(5)),
             'last_seen' => Carbon::parse($createdAt)->addDays(fake()->randomDigit(2)),

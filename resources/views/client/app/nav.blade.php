@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm" aria-label="Navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" aria-label="Navbar">
     <div class="container-xl">
         <a class="navbar-brand" href="{{ route('home') }}">
             <i class="bi-cup-hot"></i>

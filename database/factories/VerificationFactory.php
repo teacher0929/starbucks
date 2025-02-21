@@ -22,7 +22,7 @@ class VerificationFactory extends Factory
 
         return [
             'phone' => fake()->unique()->numberBetween(61000000, 65999999),
-            'code' => fake()->randomDigit(5),
+            'code' => fake()->numberBetween(10000, 99999),
             'status' => fake()->boolean(50)
                 ? 1
                 : fake()->numberBetween(0, 2),

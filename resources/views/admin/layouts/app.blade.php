@@ -11,7 +11,7 @@
     <link href="{{ asset('css/splide.min.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/splide.min.js') }}"></script>
 </head>
-<body class="bg-light">
+<body class="bg-body-secondary">
 @include('admin.app.nav')
 <div class="container-xl py-3">
     @include('admin.app.alert')
